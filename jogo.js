@@ -3,7 +3,7 @@ var numJog = 0;
 var ultmov;
 var  PtX = [0,0,0,0,0,0,0,0];
 var  PtO = [0,0,0,0,0,0,0,0];
-var  PM = new Array(8);
+var  PM = ["","","","","","","",""];
 
 function checkjogo(id) {
     var pc = document.getElementById('cpu') == 1;
@@ -44,23 +44,24 @@ function modoF(){
     if(verificarSrc("c5") == "p.png"){
         return "c5";
     }
-    return "c" + Math.flor((Math.random()* 9) + 1);
+    return "c" + Math.floor((Math.random()* 9) + 1);
 }
 
 function modoD(){
     PtX = [0,0,0,0,0,0,0,0];
     PtO = [0,0,0,0,0,0,0,0];
-    PM = ["","","","","","","",""];
+    PM = [""];
     
     progress();
 
-    PM = PtO.forEach(Pmov);
-    if(PM[0] != ""){
-        return PM[0];
+    PM.push(PtO.forEach(Pmov));
+    if(PM[1] != "" && PM[1] != null){
+        return PM[1];
     }
-    PM = PtX.forEach(Pmov);
-    if(PM[0] != ""){
-        return PM[0];
+    PM = [""];
+    PM.push(PtX.forEach(Pmov));
+    if(PM[1] != "" && PM[1] != null){
+        return PM[1];
     }
 
     if(verificarSrc("c5") == "p.png"){
