@@ -239,9 +239,11 @@ function bot(){
     if(pc){
         pc = false;
         document.getElementById("UI").textContent = "Jogar contra computador: DESATIVADO";
+        document.getElementById("butsim").textContent = "SIM";
     } else {
         pc = true;
         document.getElementById("UI").textContent = "Jogar contra computador: ATIVADO - FACIL";
+        document.getElementById("butsim").textContent = "NÃO";
     }
 }
 
