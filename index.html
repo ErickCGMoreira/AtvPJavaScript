@@ -10,8 +10,9 @@
         <thead>
             <th colspan="3">
                 <form action="">
-                    <label>Jogar contra computador:</label><br>
-                    <label><input type="radio" id="cpu" value="1"/>SIM</label><label><input type="radio" id="modo" name="modof" value="0"/>FACIL</label><label><input type="radio" id="modo" name="modod" value="1"/>DIFICIL</label>
+                    <label>X: <span id="placarx">0</span> O: <span id="placaro">0</span> Velha: <span id="placarv">0</span></label><br/>
+                    <label id="UI">Jogar contra computador: DESATIVADO</label><br>
+                    <button onclick="bot()" id="butsim" type="button">SIM</button><button onclick="easy()" id="butfacil" type="button">FACIL</button><button onclick="hard()" id="butdificil" type="button">DIFICIL</button>
                 </form>
             </th>
         </thead>

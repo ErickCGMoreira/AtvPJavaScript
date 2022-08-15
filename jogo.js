@@ -1,22 +1,27 @@
 var player = "X";
 var numJog = 0;
-var ultmov;
-var  PtX = [0,0,0,0,0,0,0,0];
-var  PtO = [0,0,0,0,0,0,0,0];
-var  PM = ["","","","","","","",""];
+var PtX = [0,0,0,0,0,0,0,0];
+var PtO = [0,0,0,0,0,0,0,0];
+var PM = "";
+var pc = false;
+var dificul = false;
+const placar = [0,0,0];
 
 function checkjogo(id) {
-    var pc = document.getElementById('cpu') == 1;
-    var dificul = document.getElementById("modo") == 1;
     var opt = verificarSrc(id);
-    ultmov = id;
 
     if (opt == "p.png") {
         document.getElementById(id).src = "img/" + player + ".png";
-
+        numJog++;
 
         if (wincheck()) {
             alert("Fim De Jogo " + player + " Venceu!");
+            if(player = "X"){
+                placar[0]++;
+            } else {
+                placar[1]++;
+            }
+            atualizarplacar();
             return false;
         }
 
@@ -27,41 +32,54 @@ function checkjogo(id) {
             player = "X";
         }
 
-        if(player == "O"){
-            checkjogo(modoD());
+        if(player == "O" && pc){
+            if(dificul){
+                checkjogo(modoD());
+            }else{
+                checkjogo(modoF());
+            }
+            
         }
     }
 
-    numJog++;
-
     if (numJog >= 9) {
+        plac[2]++;
+        atualizarplacar();
         alert("Deu velha");
         return false;
     }
 }
 
-function modoF(){
+function modoF(failsafe){
+    if(failsafe != null){
+        return failsafe;
+    }
     if(verificarSrc("c5") == "p.png"){
         return "c5";
     }
-    return "c" + Math.floor((Math.random()* 9) + 1);
+    var temp = "c" + Math.floor((Math.random()* 9) + 1);
+    if(verificarSrc(temp) == "p.png"){
+        return temp;
+    }else{
+        modoF()
+    }
 }
 
 function modoD(){
     PtX = [0,0,0,0,0,0,0,0];
     PtO = [0,0,0,0,0,0,0,0];
-    PM = [""];
+    PM = "";
     
     progress();
 
-    PM.push(PtO.forEach(Pmov));
-    if(PM[1] != "" && PM[1] != null){
-        return PM[1];
+    PtO.forEach(Pmov);
+    if(PM != "" && PM != null){
+        return PM;
     }
-    PM = [""];
-    PM.push(PtX.forEach(Pmov));
-    if(PM[1] != "" && PM[1] != null){
-        return PM[1];
+    PM =  "";
+    PtX.forEach(Pmov);
+    if(PM != "" && PM != null){
+        return PM;
     }
 
     if(verificarSrc("c5") == "p.png"){
@@ -74,22 +92,34 @@ function modoD(){
     }
     if(verificarSrc("c9") == "p.png"){
         return "c9";
-    }else{
+    }else if(verificarSrc("c8") == "p.png"){
         return "c8";
+    }
+    if(verificarSrc("c4") == "p.png"){
+        return "c4";
+    }
+    if(verificarSrc("c3") == "p.png"){
+        return "c3";
+    }
+    if(verificarSrc("c6") == "p.png"){
+        return "c6";
+    }
+    if(verificarSrc("c7") == "p.png"){
+        return "c7";
     }
 }
 
 function Pmov(value, index, array){
     if(value == 2){
         switch(index){
-            case 0: if(verificarSrc("c1") == "p.png"){return "c1"}else if (verificarSrc("c2") == "p.png"){return "c2"}else{return "c3"}
-            case 1: if(verificarSrc("c4") == "p.png"){return "c4"}else if (verificarSrc("c5") == "p.png"){return "c5"}else{return "c6"}
-            case 2: if(verificarSrc("c7") == "p.png"){return "c7"}else if (verificarSrc("c8") == "p.png"){return "c8"}else{return "c9"}
-            case 3: if(verificarSrc("c1") == "p.png"){return "c1"}else if (verificarSrc("c4") == "p.png"){return "c4"}else{return "c7"}
-            case 4: if(verificarSrc("c2") == "p.png"){return "c2"}else if (verificarSrc("c5") == "p.png"){return "c5"}else{return "c8"}
-            case 5: if(verificarSrc("c3") == "p.png"){return "c3"}else if (verificarSrc("c6") == "p.png"){return "c6"}else{return "c9"}
-            case 6: if(verificarSrc("c1") == "p.png"){return "c1"}else if (verificarSrc("c5") == "p.png"){return "c5"}else{return "c9"}
-            case 7: if(verificarSrc("c3") == "p.png"){return "c3"}else if (verificarSrc("c5") == "p.png"){return "c5"}else{return "c7"}
+            case 0: if(verificarSrc("c1") == "p.png"){PM = "c1";}else if (verificarSrc("c2") == "p.png"){PM = "c2";}else if (verificarSrc("c3") == "p.png"){PM = "c3";} break;
+            case 1: if(verificarSrc("c4") == "p.png"){PM = "c4";}else if (verificarSrc("c5") == "p.png"){PM = "c5";}else if (verificarSrc("c6") == "p.png"){PM = "c6";} break;
+            case 2: if(verificarSrc("c7") == "p.png"){PM = "c7";}else if (verificarSrc("c8") == "p.png"){PM = "c8";}else if (verificarSrc("c9") == "p.png"){PM = "c9";} break;
+            case 3: if(verificarSrc("c1") == "p.png"){PM = "c1";}else if (verificarSrc("c4") == "p.png"){PM = "c4";}else if (verificarSrc("c7") == "p.png"){PM = "c7";} break;
+            case 4: if(verificarSrc("c2") == "p.png"){PM = "c2";}else if (verificarSrc("c5") == "p.png"){PM = "c5";}else if (verificarSrc("c8") == "p.png"){PM = "c8";} break;
+            case 5: if(verificarSrc("c3") == "p.png"){PM = "c3";}else if (verificarSrc("c6") == "p.png"){PM = "c6";}else if (verificarSrc("c9") == "p.png"){PM = "c9";} break;
+            case 6: if(verificarSrc("c1") == "p.png"){PM = "c1";}else if (verificarSrc("c5") == "p.png"){PM = "c5";}else if (verificarSrc("c9") == "p.png"){PM = "c9";} break;
+            case 7: if(verificarSrc("c3") == "p.png"){PM = "c3";}else if (verificarSrc("c5") == "p.png"){PM = "c5";}else if (verificarSrc("c7") == "p.png"){PM = "c7";} break;
         }
     }
 }
@@ -203,4 +233,32 @@ function wincheck(){
 function verificarSrc(id) {
     var file = document.getElementById(id).src;
     return file.substring(file.length - 5, file.length);
+}
+
+function bot(){
+    if(pc){
+        pc = false;
+        document.getElementById(UI).textContent = "Jogar contra computador: DESATIVADO";
+    } else {
+        pc = true;
+        document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - FACIL";
+    }
+}
+
+function easy(){
+    dificul = false;
+    pc = true;
+    document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - FACIL";
+}
+
+function hard(){
+    dificul = true;
+    pc = true;
+    document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - DIFICIL";
+}
+
+function atualizarplacar(){
+    document.getElementById(placarx).textContent = placar[0];
+    document.getElementById(placaro).textContent = placar[1];
+    document.getElementById(placarv).textContent = placar[2];
 }
