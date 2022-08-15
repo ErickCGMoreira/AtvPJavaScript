@@ -238,27 +238,40 @@ function verificarSrc(id) {
 function bot(){
     if(pc){
         pc = false;
-        document.getElementById(UI).textContent = "Jogar contra computador: DESATIVADO";
+        document.getElementById("UI").textContent = "Jogar contra computador: DESATIVADO";
     } else {
         pc = true;
-        document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - FACIL";
+        document.getElementById("UI").textContent = "Jogar contra computador: ATIVADO - FACIL";
     }
 }
 
 function easy(){
     dificul = false;
     pc = true;
-    document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - FACIL";
+    document.getElementById("UI").textContent = "Jogar contra computador: ATIVADO - FACIL";
 }
 
 function hard(){
     dificul = true;
     pc = true;
-    document.getElementById(UI).textContent = "Jogar contra computador: ATIVADO - DIFICIL";
+    document.getElementById("UI").textContent = "Jogar contra computador: ATIVADO - DIFICIL";
 }
 
 function atualizarplacar(){
-    document.getElementById(placarx).textContent = placar[0];
-    document.getElementById(placaro).textContent = placar[1];
-    document.getElementById(placarv).textContent = placar[2];
+    document.getElementById("placarx").textContent = placar[0];
+    document.getElementById("placaro").textContent = placar[1];
+    document.getElementById("placarv").textContent = placar[2];
+}
+
+function reseting(){
+    document.getElementById("c1").src = "img/transp.png";
+    document.getElementById("c2").src = "img/transp.png";
+    document.getElementById("c3").src = "img/transp.png";
+    document.getElementById("c4").src = "img/transp.png";
+    document.getElementById("c5").src = "img/transp.png";
+    document.getElementById("c6").src = "img/transp.png";
+    document.getElementById("c7").src = "img/transp.png";
+    document.getElementById("c8").src = "img/transp.png";
+    document.getElementById("c9").src = "img/transp.png";
+    player = "X";
 }
