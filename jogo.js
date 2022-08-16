@@ -16,7 +16,7 @@ function checkjogo(id) {//esta função é a base do jogo, ela cuida de mudar as
 
         if (wincheck()) {//caso a condição de vitoria for realizada o jogo termina e o placar é ajustado
             alert("Fim De Jogo " + player + " Venceu!");
-            if(player = "X"){
+            if(player == "X"){
                 placar[0]++;
             } else {
                 placar[1]++;
