@@ -86,6 +86,8 @@ function modoD(){//função que determina o movimento do modo difícil, ela func
     //jogo preestabelecido, caso nenhuma das condições acima se apliquem o bot realiza um dos movimentos abaixo
     if(verificarSrc("c5") == "p.png"){
         return "c5";
+    }else if (verificarSrc("c7") == "p.png" && numJog == 1){
+        return "c7";
     }
     if(verificarSrc("c2") == "p.png"){
         return "c2";
