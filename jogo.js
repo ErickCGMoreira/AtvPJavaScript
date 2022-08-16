@@ -87,10 +87,10 @@ function modoD(){//função que determina o movimento do modo difícil, ela func
     if(verificarSrc("c5") == "p.png"){
         return "c5";
     }
-    if(verificarSrc("c1") == "p.png" && verificarSrc("c9") != "X.png"){
-        return "c1";
-    }else if(verificarSrc("c2") == "p.png"){
+    if(verificarSrc("c2") == "p.png"){
         return "c2";
+    }else if(verificarSrc("c1") == "p.png"){
+        return "c1";
     }
     if(verificarSrc("c9") == "p.png"){
         return "c9";
