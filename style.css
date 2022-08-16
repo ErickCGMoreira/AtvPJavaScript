@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+body {
+    width: 100vw;
+    height: 900px;
+    background-color: #22212C;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: white;
+}
+
+td > img{
+    width: 200px;
+    height: 200px;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 10%;
+    height: 100px;
+    width: 100px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.329);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+header {
+    height: 17vh;
+    background-color: #3b3a4d;
+    padding: 10px;
+}
+
+
+td {
+    border: none;
+    padding: auto;
+}
+
+#c1 {
+    border-bottom: 5px white solid;
+    border-right: white 5px solid;
+}
+
+#c2 {
+    border-bottom: 5px white solid;
+    border-left: white 5px solid;
+    border-right: white 5px solid;
+
+}
+
+#c3 {
+    border-bottom: 5px white solid;
+    border-left: white 5px solid;
+
+}
+
+#c4 {
+    border-bottom: 5px white solid;
+    border-right: white 5px solid;
+    border-top: 5px white solid;
+
+}
+
+#c5 {
+    border-bottom: 5px white solid;
+    border-right: white 5px solid;
+    border-top: 5px white solid;
+    border-left: white 5px solid;
+
+}
+
+#c6 {
+    border-bottom: 5px white solid;
+    border-left: white 5px solid;
+    border-top: 5px white solid;
+
+}
+
+#c7 {
+    border-top: 5px white solid;
+    border-right: white 5px solid;
+
+}
+
+#c8 {
+    border-right: white 5px solid;
+    border-top: 5px white solid;
+    border-left: white 5px solid;
+
+}
+
+#c9 {
+    border-top: 5px white solid;
+    border-left: white 5px solid;
+
+}
+
+th {
+    border: none;
+    padding: 40px;
+}
+.btn {
+	line-height: 50px;
+    background-color: #151320;
+	height: 50px;
+	text-align: center;
+	width: 250px;
+	cursor: pointer;
+}
+
+.btn-three {
+	color: white;
+	transition: all 0.5s;
+	position: relative;
+}
+.btn-three::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(236, 236, 236, 0.1);
+	transition: all 0.3s;
+}
+.btn-three:hover::before {
+	opacity: 0 ;
+	transform: scale(0.5,0.5);
+}
+.btn-three::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border: 1px solid rgba(248, 248, 248, 0.363);
+	transform: scale(1.2,1.2);
+}
+.btn-three:hover::after {
+	opacity: 1;
+	transform: scale(1,1);
+}

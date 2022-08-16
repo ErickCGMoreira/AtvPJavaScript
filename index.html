@@ -1,44 +1,61 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Among Da Velha</title>
 </head>
+
 <body>
-    <table border="1" width="200">
-        <thead>
-            <th colspan="3">
-                <form action="">
-                    <label>X: <span id="placarx">0</span> O: <span id="placaro">0</span> Velha: <span id="placarv">0</span></label><br/>
-                    <label id="UI">Jogar contra computador: DESATIVADO</label><br>
-                    <button onclick="bot()" id="butsim" type="button">SIM</button><button onclick="easy()" id="butfacil" type="button">FACIL</button><button onclick="hard()" id="butdificil" type="button">DIFICIL</button>
-                </form>
-            </th>
-        </thead>
-        <tbody>
+    <header>
+            <form action="" align="center">
+                <img src="/img/amongus.png" height="100vh"><br><br><br> 
+                <label id="UI">Contra computador: DESATIVADO</label><br><br>
+                <button class="btn btn-three" onclick="easy()" id="butfacil"type="button">FACIL</button>
+                <button class="btn btn-three" onclick="bot()" id="butsim" type="button">SIM</button>
+                <button class="btn btn-three" onclick="hard()" id="butdificil" type="button">DIFICIL</button>
+            </form>
+    </header> 
+    <hr color="white" size="3">
+
+        <table border="1" width="200" cellspacing="0">
             <tr>
-                <td><img src="img/transp.png" alt="image" id="c1" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c2" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c3" onclick="return checkjogo(this.id)"/></td>
+                <td><img src="img/transp.png" alt="image" id="c1" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c2" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c3" onclick="return checkjogo(this.id)" /></td>
             </tr>
             <tr>
-                <td><img src="img/transp.png" alt="image" id="c4" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c5" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c6" onclick="return checkjogo(this.id)"/></td>
+                <td><img src="img/transp.png" alt="image" id="c4" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c5" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c6" onclick="return checkjogo(this.id)" /></td>
             </tr>
             <tr>
-                <td><img src="img/transp.png" alt="image" id="c7" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c8" onclick="return checkjogo(this.id)"/></td>
-                <td><img src="img/transp.png" alt="image" id="c9" onclick="return checkjogo(this.id)"/></td>
+                <td><img src="img/transp.png" alt="image" id="c7" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c8" onclick="return checkjogo(this.id)" /></td>
+                <td><img src="img/transp.png" alt="image" id="c9" onclick="return checkjogo(this.id)" /></td>
             </tr>
         </tbody>
-        <tfoot>
-            <th colspan="3">
-                <button type="button" onclick="reseting()">RESET</button>
-            </th>
-        </tfoot>
     </table>
+
+    <br>
+    <p align="center"><button class="btn btn-three" type="button" onclick="reseting()">RESET</button></p>
+    <br>
+
+    <form class="placar" align="center">
+    <label>Vermelho: <span id="placarx">0</span>
+    <label>Ciano: <span id="placaro">0</span></label><br><br>
+    <label>Velha: <span id="placarv">0</span></label>
+    </form>
     <script type="text/javascript" src="jogo.js"></script>
 </body>
+
 </html>
