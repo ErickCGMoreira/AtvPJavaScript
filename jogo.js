@@ -89,7 +89,7 @@ function modoD(){//função que determina o movimento do modo difícil, ela func
     }else if (verificarSrc("c7") == "p.png" && numJog == 1){
         return "c7";
     }
-    if(verificarSrc("c2") == "p.png"){
+    if(verificarSrc("c2") == "p.png" && verificarSrc("c5") == "O.png"){
         return "c2";
     }else if(verificarSrc("c1") == "p.png"){
         return "c1";
